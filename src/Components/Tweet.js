@@ -2,22 +2,26 @@ import React from 'react';
 import './Tweet.css';
 
 const Tweet = ({ tweet }) => {
-  const parsedDate = new Date(tweet.createdAt).toLocaleDateString('ko-kr');
+  const parsedDate = new Date(tweet.createdAt).toLocaleDateString('ko-kr', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 
   return (
     <li className="tweet" id={tweet.id}>
       <div className="tweet__profile">
-        <img src={tweet.picture} />
+        <img src={tweet.picture} alt={`${tweet.username}'s profile`} />
       </div>
       <div className="tweet__content">
         <div className="tweet__userInfo">
           <div className="tweet__userInfo--wrapper">
-            {/* TODO : 유져 이름이 있어야 합니다. */}
-            {/* TODO : 트윗 생성 일자가 있어야 합니다. parsedDate를 이용하세요. */}
+            <span className="tweet__username">{tweet.username}</span> {/* 유저 이름 */}
+            <span className="tweet__createdAt">{parsedDate}</span> {/* 트윗 생성 일자 */}
           </div>
         </div>
         <div className="tweet__message">
-          TODO : 트윗 메세지가 있어야 합니다.
+          {tweet.content} {/* 트윗 메시지 */}
         </div>
       </div>
     </li>
