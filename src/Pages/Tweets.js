@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Tweet from '../Components/Tweet';
 import Footer from '../Footer';
 import dummyTweets from '../static/dummyData'; 
+import './Tweets.css';
 
 const Tweets = () => {
-  
+  // 초기 상태를 localStorage에서 가져오거나 기본값(dummyTweets)을 사용
   const [tweets, setTweets] = useState(() => {
     const savedTweets = localStorage.getItem('tweets');
     return savedTweets ? JSON.parse(savedTweets) : dummyTweets;
@@ -12,6 +13,7 @@ const Tweets = () => {
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
 
+  // 트윗 데이터가 변경될 때마다 localStorage에 저장
   useEffect(() => {
     localStorage.setItem('tweets', JSON.stringify(tweets));
   }, [tweets]);

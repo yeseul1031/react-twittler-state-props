@@ -7,7 +7,6 @@ const Tweet = ({ tweet }) => {
     month: 'numeric',
     day: '2-digit',
   }).replace(/\. /g, '. ').trim();
-  
 
   return (
     <li className="tweet" id={tweet.id}>
@@ -17,12 +16,12 @@ const Tweet = ({ tweet }) => {
       <div className="tweet__content">
         <div className="tweet__userInfo">
           <div className="tweet__userInfo--wrapper">
-            <span className="tweet__username">{tweet.username}</span> {/* 유저 이름 */}
-            <span className="tweet__createdAt">{parsedDate}</span> {/* 트윗 생성 일자 */}
+            <span className="tweet__username">{tweet.username}</span>
+            <span className="tweet__createdAt">{parsedDate}</span>
           </div>
         </div>
         <div className="tweet__message">
-          {tweet.content} {/* 트윗 메시지 */}
+          {tweet.content}
         </div>
       </div>
     </li>
